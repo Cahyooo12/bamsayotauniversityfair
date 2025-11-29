@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bamsayota University Fair - Pameran universitas terbesar untuk siswa SMA di Bambanglipuro. Temukan kampus impianmu!" />
+  <title>Bamsayota University Fair 2025</title>
+  
+  <link rel="icon" href="https://i.pinimg.com/736x/98/9c/ce/989cce36902d05cbe3b4ba2e0dbc9fd2.jpg" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F8F9FA;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #3B82F6, #1D4ED8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn-glow {
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 6px 25px rgba(29, 78, 216, 0.5);
+      transform: scale(1.05);
+    }
+    .card-hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+    }
+    .header-scrolled {
+      background-color: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    /* LOADING */
+    #preloader {
+      background: #fff; 
+      transition: opacity 0.75s ease, visibility 0.75s ease;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    #preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #preloader-logo {
+      width: 260px;
+      height: 260px;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    .progress-bar-container {
+        width: 160px;
+        height: 5px;
+        background-color: #e0e0e0;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .progress-bar-fill {
+        width: 100%;
+        height: 100%;
+        background-color: #3B82F6;
+        transform-origin: left;
+        animation: fillBar 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes fillBar {
+      0% { transform: scaleX(0); }
+      50% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+  </style>
+</head>
+
+\
+<body class="text-gray-800" x-data="{ scrolled: false }" @scroll.window="scrolled = (window.scrollY > 50)">
+
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center">
+    <img src="https://i.pinimg.com/736x/98/9c/ce/989cce36902d05cbe3b4ba2e0dbc9fd2.jpg" alt="Loading Logo" id="preloader-logo"/>
+    <div class="progress-bar-container">
+      <div class="progress-bar-fill"></div>
+    </div>
+  </div>
+
+  <!-- Header / Navigasi -->
+  <header :class="scrolled ? 'header-scrolled shadow-lg' : 'bg-transparent'" class="sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" aria-label="Beranda Bamsayota University Fair">
+        <img src="https://i.pinimg.com/736x/98/9c/ce/989cce36902d05cbe3b4ba2e0dbc9fd2.jpg" alt="Logo Bamsayota University Fair" class="h-20">
+      </a>
+      <nav class="hidden md:flex gap-8 items-center text-sm font-semibold">
+        <a href="#about" class="hover:text-blue-600 transition">Tentang</a>
+        <a href="#universities" class="hover:text-blue-600 transition">Universitas</a>
+        <a href="#schedule" class="hover:text-blue-600 transition">Jadwal</a>
+        <a href="#sponsors" class="hover:text-blue-600 transition">Sponsor</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Kontak</a>
+        <a href="#register" class="px-5 py-2 bg-blue-600 text-white rounded-lg font-semibold btn-glow text-xs">Daftar Sekarang</a>
+      </nav>
+      <button class="md:hidden text-gray-700" aria-label="Buka menu navigasi">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Bagian Hero -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-50 to-white"></div>
+        <div class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center relative z-10">
+            <div class="animate__animated animate__fadeInLeft">
+                <h2 class="text-5xl md:text-6xl font-extrabold leading-tight gradient-text">
+                    Temukan Kampus Impianmu di Bamsayota University Fair ✨
+                </h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    Jelajahi berbagai universitas, temukan jurusan keren, dan raih info beasiswa — semua dalam satu event seru buat Gen Z!
+                </p>
+                <div class="mt-8 flex gap-4 flex-wrap">
+                    <a href="#universities" class="px-8 py-4 bg-blue-600 text-white rounded-xl font-semibold btn-glow text-lg">🎓 Lihat Universitas</a>
+                    <a href="#register" class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition transform hover:scale-105">✍️ Daftar Gratis</a>
+                </div>
+                <div class="mt-8 text-sm text-gray-500">
+                    📍 SMA Negeri 1 Bambanglipuro | Gratis untuk siswa & guru
+                </div>
+            </div>
+            <div class="relative animate__animated animate__fadeInRight">
+                <!-- Ganti gambar placeholder dengan gambar yang relevan -->
+                <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop" alt="Mahasiswa ceria di pameran universitas" class="rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500" />
+                <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-2xl text-center animate__animated animate__bounce animate__infinite" style="animation-duration: 4s">
+                    <p class="text-2xl font-bold gradient-text">50+</p>
+                    <p class="text-sm text-gray-600">Universitas Bergabung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang Acara -->
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="bg-white p-10 rounded-2xl shadow-xl animate__animated animate__fadeInUp">
+                <h3 class="text-4xl font-bold gradient-text text-center">Tentang Acara</h3>
+                <p class="mt-4 text-gray-600 text-center max-w-3xl mx-auto">
+                    BUF adalah event tahunan yang didedikasikan untuk siswa SMA yang sedang merencanakan masa depan. Di sini kamu bisa bertanya langsung pada perwakilan universitas, menemukan jurusan populer, hingga mendapatkan informasi beasiswa eksklusif. Acara ini sangat cocok untuk siswa kelas X, XI, dan XII! 🚀
+                </p>
+                <div class="mt-10 grid sm:grid-cols-3 gap-8">
+                    <div class="p-6 text-center card-hover bg-white rounded-xl border border-gray-100" aria-label="Info Jurusan">
+                        <h4 class="font-bold text-xl">📘 Info Jurusan</h4>
+                        <p class="text-sm text-gray-600 mt-2">Dapatkan brosur lengkap dan ikuti sesi tanya jawab langsung.</p>
+                    </div>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="p-6 text-center card-hover bg-white rounded-xl border border-gray-100 block hover:bg-blue-50 transition" aria-label="Konsultasi via WhatsApp">
+                        <h4 class="font-bold text-xl">🤝 Konsultasi Karir</h4>
+                        <p class="text-sm text-gray-600 mt-2">Dapatkan tips jalur masuk dan strategi persiapan seleksi.</p>
+                    </a>
+                    <div class="p-6 text-center card-hover bg-white rounded-xl border border-gray-100" aria-label="Beasiswa">
+                        <h4 class="font-bold text-xl">💸 Info Beasiswa</h4>
+                        <p class="text-sm text-gray-600 mt-2">Temukan info lengkap beasiswa dari berbagai kampus nasional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Universitas Peserta -->
+    <section id="universities" class="py-24 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h3 class="text-4xl font-bold gradient-text text-center animate__animated animate__fadeIn">
+                Universitas Peserta 🎓
+            </h3>
+            <p class="text-center text-gray-600 mt-2 animate__animated animate__fadeIn">
+                Klik logo untuk mengunjungi website resmi universitas!
+            </p>
+            <div class="mt-12 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 animate__animated animate__fadeInUp">
+              <a href="https://home.amikom.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Univeritas AMIKOM Yogyakarta">
+                  <img src="https://kadowisudaku.com/wp-content/uploads/2018/01/logo-amikom.png" alt="Logo Univeritas AMIKOM Yogyakarta" class="w-20 h-20 object-contain mx-auto mb-4 rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110" />
+                  <h4 class="font-semibold text-gray-800">Univeritas AMIKOM Yogyakarta</h4>
+                  <p class="text-sm text-blue-600 mt-1">Sistem Informasi • Informatika</p>
+                </a>
+                <a href="https://www.uny.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Negeri Yogyakarta">
+                    <img src="https://www.uny.ac.id/sites/default/files/inline-images/logo-uny.png" alt="Logo Universitas Negeri Yogyakarta" class="w-20 h-20 object-contain mx-auto mb-4 rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Negeri Yogyakarta</h4>
+                    <p class="text-sm text-blue-600 mt-1">Teknik • Pendidikan • Seni</p>
+                </a>
+                <a href="https://ugm.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Gadjah Mada">
+                    <img src="https://ugm.ac.id/wp-content/uploads/2022/11/LOGO-UGM-BAKU-tnp-back-grou-300x300.jpg" alt="Logo Universitas Gadjah Mada" class="w-20 h-20 object-contain mx-auto mb-4 rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Gadjah Mada</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Sosial • Kesehatan</p>
+                </a>
+                <a href="https://www.upnyk.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website UPN ”Veteran” Yogyakarta">
+                    <img src="https://www.upnyk.ac.id/public/frontend/images/logo-upn.png" alt="Logo UPN ”Veteran” Yogyakarta" class="w-20 h-20 object-contain mx-auto mb-4 rounded-lg shadow-md transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">UPN ”Veteran” Yogyakarta</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sastra Mesin</p>
+                </a>
+                <a href="https://uad.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Univeritas Ahmad Dahlan">
+                    <img src="https://uad.ac.id/wp-content/uploads/logo-warna.png" alt="Logo UAD" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Univeritas Ahmad Dahlan</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://ustjogja.ac.id/id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Univeritas Sarjanawiyata Tamansiswa">
+                    <img src="https://i.pinimg.com/736x/28/16/76/2816762331ca862f6104d7084c90c7f5.jpg" alt="Logo Univeritas Sarjanawiyata Tamansiswa" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Univeritas Sarjanawiyata Tamansiswa</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://www.uin-suka.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website UIN Sunan Kalijaga">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/c/c6/Logo_UIN_Sunan_Kalijaga.png" alt="Logo UIN Sunan Kalijaga" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">UIN Sunan Kalijaga</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://www.usd.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https.usd.ac.id/logo/usd.png" alt="Logo Universitas Sanata Dharma" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Sanata Dharma</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://undip.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://feb.undip.ac.id/wp-content/uploads/2021/09/undip-png.png" alt="Logo Universitas Diponegoro" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Diponegoro</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://untidar.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://untidar.ac.id/wp-content/uploads/2018/11/LOGO-UNTIDAR-2017-218x218.png" alt="Logo Universitas Tidar" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Tidar</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                    <a href="https://uns.ac.id/id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://uns.ac.id/id/wp-content/uploads/2023/06/cropped-cropped-logo-uns-biru-1.webp" alt="Logo Universitas Negeri Sebelas Maret" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Negeri Sebelas Maret</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                    <a href="https://unej.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://i.pinimg.com/1200x/43/25/cf/4325cffcaafcb5832272cc10372708e3.jpg" alt="Logo Universitas Jember" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Jember</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                    <a href="https://um.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://um.ac.id/wp-content/uploads/2019/03/Lambang-UM-550x550.png" alt="Logo Universitas Negeri Malang" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Negeri Malang</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                    <a href="https://www.uii.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSMbbjCSlIhL38Sa15kqBkUa88BtAbHwdvrg&s" alt="Logo Universitas Islam Indonesia" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Islam Indonesia</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://www.ut.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://www.ut.ac.id/wp-content/uploads/2015/11/logo-ut-small-transparent.png.webp" alt="Logo Universitas Terbuka" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Terbuka</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://uty.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/UTY.jpg" alt="Logo Universitas Teknologi Yogyakarta" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Teknologi Yogyakarta</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://upy.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://upy.ac.id/wp-content/uploads/2023/10/Background-Transparan.png" alt="Logo Universitas PGRI Yogyakarta" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Teknologi Yogyakarta</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+                <a href="https://ukdw.ac.id/" target="_blank" rel="noopener noreferrer" class="group block bg-white p-6 text-center rounded-2xl card-hover" aria-label="Kunjungi website Universitas Sanata Dharma">
+                    <img src="https://ukdw.ac.id/wp-content/uploads/2017/10/logo-ukdw.png" alt="Logo Universitas Kristen Duta Wacana" class="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-300 group-hover:scale-110" />
+                    <h4 class="font-semibold text-gray-800">Universitas Kristen Duta Wacana</h4>
+                    <p class="text-sm text-blue-600 mt-1">Sains • Humaniora</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Jadwal Acara -->
+    <section id="schedule" class="py-24">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="text-4xl font-bold gradient-text text-center">Jadwal Acara 📅</h3>
+            <div class="mt-12 flow-root">
+                <ul class="-mb-8">
+                    <li>
+                        <div class="relative pb-8">
+                            <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-blue-200" aria-hidden="true"></span>
+                            <div class="relative flex space-x-3 items-center">
+                                <div><span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white text-white font-bold">1</span></div>
+                                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 card-hover">
+                                    <h4 class="font-semibold text-lg">09:00 — Pembukaan</h4>
+                                    <p class="text-sm text-gray-600">Sambutan oleh Kepala Sekolah & Ketua Panitia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="relative pb-8">
+                            <span class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-blue-200" aria-hidden="true"></span>
+                            <div class="relative flex space-x-3 items-center">
+                                <div><span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white text-white font-bold">2</span></div>
+                                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 card-hover">
+                                    <h4 class="font-semibold text-lg">09:30 — Expo Universitas Dimulai</h4>
+                                    <p class="text-sm text-gray-600">Kunjungi booth universitas dan konsultasikan masa depanmu.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="relative">
+                            <div class="relative flex space-x-3 items-center">
+                                <div><span class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center ring-8 ring-white text-white font-bold">3</span></div>
+                                <div class="bg-white p-6 rounded-xl shadow-lg flex-1 card-hover">
+                                    <h4 class="font-semibold text-lg">12:00 — Talkshow & Sesi Tanya Jawab</h4>
+                                    <p class="text-sm text-gray-600">Sesi inspiratif bersama alumni dan konselor pendidikan.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Pendaftaran (PERBAIKAN TATA LETAK) -->
+    <section id="register" class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+            
+            <!-- Kolom Kiri: Info -->
+            <div class="animate__animated animate__fadeInLeft">
+                <h3 class="text-4xl font-bold">Informasi Penting 📢</h3>
+                <ul class="mt-6 space-y-4">
+                    <li class="flex items-start text-lg">
+                        <span class="mr-3 mt-1">📍</span> 
+                        <div>
+                            <strong class="text-white">Lokasi:</strong><br>
+                            <span class="text-gray-300">SMA Negeri 1 Bambanglipuro</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start text-lg">
+                        <span class="mr-3 mt-1">🕘</span> 
+                        <div>
+                            <strong class="text-white">Waktu:</strong><br>
+                            <span class="text-gray-300">09.00 — 14.00 WIB</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start text-lg">
+                        <span class="mr-3 mt-1">💰</span> 
+                        <div>
+                            <strong class="text-white">Biaya:</strong><br>
+                            <span class="text-gray-300">Gratis & Terbuka untuk Umum</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start text-lg">
+                        <span class="mr-3 mt-1">☎️</span> 
+                        <div>
+                            <strong class="text-white">Narahubung:</strong><br>
+                            <span class="text-gray-300">+62 812-3456-7890 (Cahyo)</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+           <div class="animate__animated animate__fadeInRight">
+                <h3 class="text-3xl font-bold text-white mb-6"></h3> <!-- Tambah Judul -->
+                <p class="text-gray-300 mb-8"> 
+                </p>
+                <a href="https://forms.gle/5qSJBEWBUwKir674A" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-block w-full text-center px-10 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 btn-glow">
+                    Presensi
+                </a>
+                <a href="#" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="inline-block w-full text-center mt-4 px-10 py-4 bg-gray-100 text-gray-700 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
+                    Kritik & Saran
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Sponsor -->
+    <section id="sponsors" class="py-16 sm:py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center">
+          <h3 class="text-4xl font-bold text-gray-800">Sponsor</h3>
+          <p class="text-gray-600 mt-2">Terima kasih kepada semua pihak yang telah mendukung acara ini!</p>
+        </div>
+        
+        <div class="mt-12">
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 sm:gap-6">
+            
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://w7.pngwing.com/pngs/647/940/png-transparent-cosmetics-logo-brand-wardah-others-blue-text-service-thumbnail.png" alt="Logo Sponsor 1">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn-RcvkwfdX4HfJYZ6y2fQGjMMbAag8zPgqs4wNW47A3eQzo7_-eEs7jE5x6rJ9HeTJdw&usqp=CAU" alt="Logo Sponsor 2">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://mms.img.susercontent.com/61873d4c27d21e412c967edff74e2d2e" alt="Logo Media Partner 1">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop,q=95/AR0bzyEKRJUlX37P/logo-web-mxB70xewOOSL0Dpd.png" alt="Logo Media Partner 2">
+            </div>
+            
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://e7.pngegg.com/pngimages/35/895/png-clipart-logo-brand-telkom-indonesia-sponsor-font-indonesian-revolution-thumbnail.png" alt="Logo Sponsor 3">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://gmedia.id/_nuxt/img/GmediaBall.c751a6d.png" alt="Logo Media Partner 3">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://imgcdn.espos.id/@espos/images/2015/02/jogja-istimewa-jogja-darurat-logo.jpg?quality=60" alt="Logo Media Partner 4">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://i.pinimg.com/736x/fc/85/a9/fc85a9f4d37737b857e9e6ff936a7bb9.jpg" alt="Logo Media Partner 5">
+            </div>
+
+            <div class="flex items-center justify-center p-5 bg-white border border-gray-200 rounded-lg">
+              <img class="max-h-20 w-auto object-contain" src="https://i.pinimg.com/736x/8e/61/5f/8e-615f270ecbe2e44c235aad7c1d81c9.jpg" alt="Logo Media Partner 5">
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Bagian Kontak & Lokasi -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-blue-50 to-white">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <h3 class="text-4xl font-bold gradient-text">Kontak Panitia 📬</h3>
+                <p class="mt-4 text-gray-600">Punya pertanyaan? Jangan ragu untuk menghubungi kami.</p>
+                <p class="mt-4 text-gray-600"><strong>Email:</strong> panitia@bamsayota.local</p>
+                <p class="text-gray-600"><strong>Telepon:</strong> +62 812-3456-7890 (Cahyo)</p>
+            </div>
+            <div>
+                <h3 class="text-4xl font-bold gradient-text">Lokasi </h3>
+                <div class="mt-4 rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                        title="Peta Lokasi SMA Negeri 1 Bambanglipuro"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.5440556062413!2d110.30047499999999!3d-7.9425927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7affb8a4c7b677%3A0x6eef3efd3d08f143!2sSMA%20Negeri%201%20Bambanglipuro!5e0!3m2!1sid!2sid!4v1759883093944!5m2!1sid!2sid"
+                        class="w-full h-72 border-0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        aria-label="Peta Lokasi SMA Negeri 1 Bambanglipuro">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+        <p>© 2025 Bamsayota University Fair. All Rights Reserved.</p>
+        <p class="text-sm text-gray-400 mt-2">Designed and developed by a student at Amikom University.</p>
+    </div>
+  </footer>
+  
+  <!-- Tombol Kembali ke Atas -->
+  <button x-show="scrolled" @click="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg btn-glow" aria-label="Kembali ke atas">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script>
+    const preloader = document.getElementById("preloader");
+    const minDisplayTime = 2000; // Minimal 2 detik
+    const startTime = performance.now();
+
+    window.addEventListener("load", function () {
+      if (preloader) {
+        const elapsedTime = performance.now() - startTime;
+        const delay = Math.max(0, minDisplayTime - elapsedTime);
+
+        setTimeout(() => {
+          preloader.classList.add('hidden');
+        }, delay);
+      }
+    });
+
+  </script>
+</body>
+</html>
+
